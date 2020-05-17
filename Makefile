@@ -1,4 +1,6 @@
 obj := out/kernel.o out/screen.o out/bootloader.o
+all : bkernel out/kernel.o out/screen.o out/bootloader.o test clean
+out : bkernel out/kernel.o out/screen.o out/bootloader.o
 bkernel : $(obj)
 	ld -m elf_i386 -T source/linker.ld -o build/bkernel.out $^
 out/kernel.o : source/kernel.c
